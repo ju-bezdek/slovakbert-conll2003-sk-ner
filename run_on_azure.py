@@ -6,19 +6,20 @@ from azureml.core import Environment
 
 #Constants
 WS_CONFIG_PATH='.azureml'
+COMPUTE_TARGET="Standard-NC6-Promo"
 
 def run_remote():
     print(f"Run remote train... OK? [Y/N]")
     if input().upper()!="Y":
         print("Exiting...")
-    curated_env_name = 'AzureML-pytorch-1.10-ubuntu18.04-py38-cuda11-gpu'
+    
     ws=Workspace.from_config(WS_CONFIG_PATH)
 
     env = Environment.from_pip_requirements('slovakbert_conll2003_sk_ner', './src/requirements.txt')
     
     #distr_config = MpiConfiguration(process_count_per_node=1, node_count=1)
     
-    compute_target = ComputeTarget(workspace=ws, name="Standard-NC6-Promo")
+    compute_target = ComputeTarget(workspace=ws, name=COMPUTE_TARGET)
     instance_status = compute_target.get_status().state
     if instance_status=="Stopped":
         compute_target.start(wait_for_completion=True, show_output=True)
@@ -96,7 +97,7 @@ def create_compute_intance(cpu_cluster_name:str):
 def get_ws():
     Workspace.from_config(WS_CONFIG_PATH)
 
-#run_remote()
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description = 'Run remote train job on azure')
     subparsers = parser.add_subparsers(help="create_ws | run_remote", dest='command')
@@ -117,4 +118,4 @@ if __name__ == '__main__':
         create_ws(args.sub_id, args.ws, args.rg, args.location)
     elif args.command=="run_remote":
         run_remote()
-    #main(**vars(args))
+    
