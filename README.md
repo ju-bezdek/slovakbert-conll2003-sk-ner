@@ -39,6 +39,7 @@ displacy.render({"text":input_sentence, "ents":dicplacy_ents}, style="ent", opti
 ```
 
 ### Result: 
+
 <div>
              <span class="tex2jax_ignore"><div class="entities" style="line-height: 2.5; direction: ltr">
        <mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
@@ -77,3 +78,51 @@ displacy.render({"text":input_sentence, "ents":dicplacy_ents}, style="ent", opti
        </mark>
        </div></span>
        </div>
+
+
+
+```json:
+[{
+    'entity_group': 'MISC',
+    'score': 0.82277083,
+    'word': ' Ruský',
+    'start': 0,
+    'end': 5
+}, {
+    'entity_group': 'PER',
+    'score': 0.9821574,
+    'word': ' Viktor Černomyrdin',
+    'start': 14,
+    'end': 32
+}, {
+    'entity_group': 'PER',
+    'score': 0.9796225,
+    'word': ' Boris Jeľcin',
+    'start': 64,
+    'end': 76
+}, {
+    'entity_group': 'LOC',
+    'score': 0.94837284,
+    'word': ' Moskvy',
+    'start': 106,
+    'end': 112
+}, {
+    'entity_group': 'PER',
+    'score': 0.94473803,
+    'word': ' Alexandra Lebedu',
+    'start': 154,
+    'end': 170
+}, {
+    'entity_group': 'LOC',
+    'score': 0.81060684,
+    'word': ' Čečensko,',
+    'start': 175,
+    'end': 184
+}, {
+    'entity_group': 'ORG',
+    'score': 0.9785074,
+    'word': ' Interfax',
+    'start': 210,
+    'end': 218
+}]
+```
