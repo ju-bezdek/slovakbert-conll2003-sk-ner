@@ -1,0 +1,18 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+ipykernel = "*"
+
+[packages]
+transformers = ">=4.15.0"
+datasets = ">=1.17.0"
+torch = "*"
+seqeval = "*"
+azureml = "*"
+azureml-sdk = "*"
+
+[requires]
+python_version = "3.8"

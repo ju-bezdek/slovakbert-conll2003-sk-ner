@@ -1,0 +1,7 @@
+outputs
+cache
+.azure*
+.DS_Store
+azureml-logs/**
+logs
+cache
